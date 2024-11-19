@@ -64,6 +64,23 @@ function deleteTask(button) {
 // Add an event listener to the form to handle submission
 taskForm.addEventListener('submit', addTask);
 
+// Function to search tasks based on keywords in title or description
+function searchTasks() {
+    const searchKeyword = document.getElementById('search-bar').value.toLowerCase();
+    const allTasks = tasksContainer.querySelectorAll('.task');
+
+    allTasks.forEach(task => {
+        const title = task.querySelector('h3').innerText.toLowerCase();
+        const description = task.querySelector('.desc').innerText.toLowerCase();
+
+        // Check if the title or description contains the search keyword
+        const matchesSearch = title.includes(searchKeyword) || description.includes(searchKeyword);
+
+        // Show or hide tasks based on search keyword
+        task.style.display = matchesSearch ? 'block' : 'none';
+    });
+}
+
 
 
 //Connecting backened and frontend
