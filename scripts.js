@@ -63,3 +63,25 @@ function deleteTask(button) {
 
 // Add an event listener to the form to handle submission
 taskForm.addEventListener('submit', addTask);
+
+
+
+//Connecting backened and frontend
+const login = async () => {
+  const email = document.querySelector("#email").value;
+  const password = document.querySelector("#password").value;
+
+  const res = await fetch("https://your-backend.fly.dev/api/auth/login", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email, password }),
+  });
+
+  const data = await res.json();
+  if (res.ok) {
+    localStorage.setItem("token", data.token);
+    alert("Login successful!");
+  } else {
+    alert(data.error);
+  }
+};
