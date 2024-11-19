@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskMaster - Task Management System</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+</head>
+<body>
+    <header>
+        <h1>TaskMaster</h1>
+    </header>
+    <main>
+        <section id="task-form">
+            <form id="new-task-form">
+            <h3>Add a New Task</h3>
+            <p class="p">Manage your tasks efficiently</p>
+                <label for="task-title">Title:</label>
+                <input type="text" id="task-title" required>
+
+                <label for="task-desc">Description:</label>
+                <textarea id="task-desc" required></textarea>
+
+                <label for="task-deadline">Deadline:</label>
+                <input type="date" id="task-deadline" required>
+
+                <label for="task-priority">Priority:</label>
+                <select id="task-priority" required>
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                </select><br><br>
+                <button type="submit">Add Task</button>
+            </form>
+        </section>
+
+        <section id="task-list">
+<section id="filter-options">
+    <h3>Filter Tasks</h3>
+    <label for="filter-priority">Priority:</label>
+    <select id="filter-priority">
+        <option value="all">All</option>
+        <option value="low">Low</option>
+        <option value="medium">Medium</option>
+        <option value="high">High</option>
+    </select>
+
+    <label for="filter-date">Due Date:</label>
+    <input type="date" id="filter-date">
+    <button onclick="filterTasks()">Filter</button>
+</section>
+            <h3>Your Tasks</h3>
+            <div id="tasks"></div>
+        </section>
+    </main>
+
+    <script src="scripts.js"></script> <!-- Link to your JavaScript file -->
+</body>
+</html>
